@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLust</title>
+</head>
+<body>
+    <h2>listing details : </h2>
+    <ul>
+        <li><%= list.title %></li>
+        <li><%= list.description %></li>
+        <li> &#8377; <%= list.price.toLocaleString("en-IN") %></li>  <!-- toLocaleString() will convert number with commas according to country standard for indian type "en-in"-->
+        <li><%= list.location %></li>
+        <li><%= list.country %></li>
+    </ul>
+    <a href="/listings/<%= list.id%>/edit">Edit this listing</a>
+    <br><br>
+    <form action="/listings/<%= list.id%>?_method=DELETE" method="POST">
+        <button type = "submit">Delete this listing</a>
+    </form>
+    
+</body>
+</html>
