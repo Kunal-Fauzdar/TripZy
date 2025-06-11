@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Listings </title>
-</head>
+<% layout("/layouts/boilerplate.ejs") %>
 <body>
-    <form action="/listings/new">
+    <!-- <form action="/listings/new">
         <button type = "submit">Create new Listing</button>
-    </form>
+    </form> -->
+    <div class="container"></div>
     <h3>All Listings</h3>
-    <ul>
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
         <% for (listing of allListings) { %>
-            <li> <a href="/listings/<%= listing.id %>"> <%=listing.title%> </a> </li>
+            <div class="card" >
+                <img src="<%=listing.image%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%=listing.title%></h5>
+                    <p class="card-text"><%=listing.price.toLocaleString("en-IN")%>/night</p>
+                </div>
+            </div>
         <% } %>
-    </ul>
+    </div>
 </body>
-</html>
