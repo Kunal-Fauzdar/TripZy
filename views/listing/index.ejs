@@ -5,15 +5,23 @@
     </form> -->
     <div class="container"></div>
     <h3>All Listings</h3>
-    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2">
         <% for (listing of allListings) { %>
-            <div class="card" >
-                <img src="<%=listing.image%>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%=listing.title%></h5>
-                    <p class="card-text"><%=listing.price.toLocaleString("en-IN")%>/night</p>
+            <a href="/listings/<%= listing.id %>" class="listing-link">
+                <div class="card col" >
+                    <img src="<%=listing.image || 'noimage.png' %>" 
+                    class="card-img-top" 
+                    alt="no image"
+                    style="height:15rem;">
+                    <div class="card-img-overlay">
+                        abcd
+                    </div>
+                    <div class="card-body">
+                        <b><%=listing.title%></b>
+                        <p class="card-text"><%=listing.price.toLocaleString("en-IN")%>/night</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         <% } %>
     </div>
 </body>
