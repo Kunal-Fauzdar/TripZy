@@ -1,17 +1,29 @@
 <% layout("/layouts/boilerplate.ejs") %>
 <body>
-    <h2>listing details : </h2>
-    <ul>
-        <li><%= list.title %></li>
-        <li><%= list.description %></li>
-        <li> &#8377; <%= list.price.toLocaleString("en-IN") %></li>  <!-- toLocaleString() will convert number with commas according to country standard for indian type "en-in"-->
-        <li><%= list.location %></li>
-        <li><%= list.country %></li>
-    </ul>
-    <a href="/listings/<%= list.id%>/edit">Edit this listing</a>
-    <br><br>
-    <form action="/listings/<%= list.id%>?_method=DELETE" method="POST">
-        <button type = "submit">Delete this listing</a>
-    </form>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <br>
+            <h2>listing details : </h2>
+                <div class="card">
+                    <img src="<%= list.image %>" class="card-img-top show-img" alt="listing-image"> 
+                    <div class="card-body mt-3">
+                        <p class="card-text"><b><%= list.title %></b><br>
+                            <%= list.description %> <hr>
+                            &#8377; <%= list.price.toLocaleString("en-IN") %> <br>  <!-- toLocaleString() will convert number with commas according to country standard for indian type "en-in"-->
+                            <%= list.location %> <br>
+                            <%= list.country %>
+                        </p> 
+                    </div>
+                </div>
+            
+        </div>
+        <div class="btns offset-3" >
+            <a href="/listings/<%= list.id%>/edit" class="btn btn-dark btn-add">Edit</a>
+            <form action="/listings/<%= list.id%>?_method=DELETE" method="POST">
+                <button type = "submit" class="btn btn-dark ">Delete</a>
+            </form>
+        </div>
+        <br>
+    </div>
     
 </body>
